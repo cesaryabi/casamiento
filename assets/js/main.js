@@ -111,3 +111,41 @@ const ahoraFormateada =  `${ahora_anio.toString()}:${ahora_month.toString()}:${a
 console.log(`La hora actual es: ${ahoraFormateada}`);
 
 }
+
+// Animación de corazones flotantes
+
+
+// Cuenta regresiva
+function updateCountdown() {
+  const weddingDate = new Date('2025-04-05T16:00:00');
+  const now = new Date();
+  const diff = weddingDate - now;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('countdown').innerHTML = `
+    <div class="row">
+      <div class="col-3">
+        <h3>${days}</h3>
+        <p>Días</p>
+      </div>
+      <div class="col-3">
+        <h3>${hours}</h3>
+        <p>Horas</p>
+      </div>
+      <div class="col-3">
+        <h3>${minutes}</h3>
+        <p>Minutos</p>
+      </div>
+      <div class="col-3">
+        <h3>${seconds}</h3>
+        <p>Segundos</p>
+      </div>
+    </div>
+  `;
+}
+
+setInterval(updateCountdown, 1000);
