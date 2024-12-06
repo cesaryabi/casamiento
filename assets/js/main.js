@@ -149,3 +149,20 @@ function updateCountdown() {
 }
 
 setInterval(updateCountdown, 1000);
+
+// window.onload = function() {
+//   const audio = document.getElementById('backgroundMusic');
+//   audio.volume = 0; // Empezamos con volumen 0
+//   audio.play();
+
+//   // Fade in gradual
+//   // let volumen = 0;
+//   // const fadeIn = setInterval(() => {
+//   //     if (volumen < 1) {
+//   //         volumen += 0.1;
+//   //         audio.volume = volumen;
+//   //     } else {
+//   //         clearInterval(fadeIn);
+//   //     }
+//   // }, 200); // Aumenta el volumen cada 200ms
+// };

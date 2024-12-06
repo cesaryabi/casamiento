@@ -17,7 +17,7 @@
      <script src="assets/js/playlist.js" defer></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
+<script src="assets/js/audio-player.js" defer></script>
 <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -150,6 +150,21 @@
     <link href="product.css" rel="stylesheet">
   </head>
   <body>
+    <div class="audio-player-container">
+      <audio id="backgroundMusic" loop>
+        <source src="home.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+      
+      <button id="audioControl" class="audio-control">
+        <i class="fas fa-play" id="audioIcon"></i>
+      </button>
+      
+      <div class="audio-info">
+        <span>Escucha!</span>
+      </div>
+    </div>
+
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -231,10 +246,10 @@
     <div class="row">
       <div class="col-md-4">
         <div class="info-card">
-          <h3>Ceremonia Religiosa</h3>
-          <p>16:00 hs</p>
-          <p>Iglesia [Nombre]</p>
-          <a href="[URL_MAPS]" class="btn confirm-button" target="_blank">
+          <h3>Ceremonia</h3>
+          <p>17:00 hs</p>
+          <p>Auditorio Iglesia Cristiana</p>
+          <a href="https://maps.app.goo.gl/sahJ2xRngrdu5F6UA" class="btn confirm-button" target="_blank">
             Ver ubicación
           </a>
         </div>
@@ -243,9 +258,9 @@
       <div class="col-md-4">
         <div class="info-card">
           <h3>Fiesta</h3>
-          <p>20:00 hs</p>
-          <p>Salón [Nombre]</p>
-          <a href="[URL_MAPS]" class="btn confirm-button" target="_blank">
+          <p>18:00 hs</p>
+          <p>Salón Juventus (Empleados de Comercio, Aldea romana)</p>
+          <a href="https://maps.app.goo.gl/owU1pBFEvMRc3fkEA" class="btn confirm-button" target="_blank">
             Ver ubicación
           </a>
         </div>
@@ -256,7 +271,8 @@
           <h3>Tarjeta</h3>
           <p>Valor: $40,000</p>
           <p>Datos bancarios:</p>
-          <p>[Información bancaria]</p>
+          <p>Alias: cdeorta</p>
+          
         </div>
       </div>
     </div>
@@ -264,7 +280,9 @@
     <div class="text-center my-5">
       <h3>¿Nos acompañas?</h3>
       <button class="confirm-button" id="confirmarAsistencia">
+        <a  target="_blank" class="link-secondary text-decoration-none" href="https://api.whatsapp.com/send/?phone=542914681055&text=Hola si confirmo&type=phone_number&app_absent=0">
         Confirmar Asistencia
+        </a>
       </button>
     </div>
 
