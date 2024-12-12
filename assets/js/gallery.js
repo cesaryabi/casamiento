@@ -40,7 +40,7 @@ async function loadGalleryImages() {
 
     images.forEach(imageName => {
       const img = document.createElement('img');
-      img.src = `/assets/img/galeria/${imageName}`;
+      img.src = `assets/img/galeria/${imageName}`;
       img.style= "height: 100%;"
       img.alt = 'Foto de nuestra historia';
       img.className = 'gallery-image';
