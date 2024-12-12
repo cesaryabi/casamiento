@@ -1,3 +1,20 @@
+// Configuración de Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyBg8aKjD-Z4aukr7CejJKfLrOLqngeq4vc",
+  authDomain: "bodabase.firebaseapp.com",
+  projectId: "bodabase",
+  storageBucket: "bodabase.firebasestorage.app",
+  messagingSenderId: "770712071112",
+  appId: "1:770712071112:web:adae37c7413dd84bd7aefd",
+  measurementId: "G-6BQ0BCVEWS"
+};
+
+// Inicializar Firebase
+const app = firebase.initializeApp(firebaseConfig);
+
+// Inicializar Firestore
+const db = firebase.firestore();
+
 class PlaylistManager {
   constructor() {
     this.songs = [];
@@ -88,3 +105,43 @@ class PlaylistManager {
 
 // Inicializar el administrador de playlist
 const playlistManager = new PlaylistManager(); 
+
+// Agregar una canción
+function agregarCancion(Nombre, Artista) {
+  return db.collection('canciones').add({
+    Artista: Artista,
+    Nombre: Nombre,
+    fecha: firebase.firestore.FieldValue.serverTimestamp()
+  });
+}
+
+// Opción 1: Usando .then()
+function obtenerCanciones() {
+  db.collection('canciones')
+    .orderBy('fecha', 'desc')
+    .get()
+    .then((querySnapshot) => {
+      console.log(querySnapshot)
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data());
+      });
+    })
+    .catch((error) => {
+      console.error("Error obteniendo canciones: ", error);
+    });
+}
+
+// Opción 2: Usando async/await
+async function obtenerCancionesAsync() {
+  try {
+    const querySnapshot = await db.collection('canciones')
+      .orderBy('timestamp', 'desc')
+      .get();
+    
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+    });
+  } catch (error) {
+    console.error("Error obteniendo canciones: ", error);
+  }
+} 

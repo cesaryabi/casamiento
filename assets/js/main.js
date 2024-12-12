@@ -49,37 +49,37 @@ function atras(){
 */
 //cuenta regresiva
  //cuenta_regresiva() 
- const spancuenta= document.getElementById('cuentaregresiva');
- // Fecha actual
-const ahora = new Date();
+//  const spancuenta= document.getElementById('cuentaregresiva');
+//  // Fecha actual
+// const ahora = new Date();
 
-// Fecha futura (por ejemplo, Año Nuevo)
-const fechaFutura = new Date('2025-04-05T18:00:00');
+// // Fecha futura (por ejemplo, Año Nuevo)
+// const fechaFutura = new Date('2025-04-05T18:00:00');
 
-// Función para calcular el tiempo restante
-function calcularCuentaRegresiva() {
-  const ahora = new Date(); // Obtener la fecha actual
-  const diferencia = fechaFutura - ahora; // Diferencia en milisegundos
+// // Función para calcular el tiempo restante
+// function calcularCuentaRegresiva() {
+//   const ahora = new Date(); // Obtener la fecha actual
+//   const diferencia = fechaFutura - ahora; // Diferencia en milisegundos
 
-  if (diferencia <= 0) {
-    console.log("¡El tiempo se ha cumplido!");
-    clearInterval(intervalo); // Detener el intervalo si ya pasó la fecha
-    return;
-  }
+//   if (diferencia <= 0) {
+//     console.log("¡El tiempo se ha cumplido!");
+//     clearInterval(intervalo); // Detener el intervalo si ya pasó la fecha
+//     return;
+//   }
 
-  // Calcular días, horas, minutos y segundos restantes
-  const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-  const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-  const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+//   // Calcular días, horas, minutos y segundos restantes
+//   const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+//   const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//   const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+//   const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
 
-  // Mostrar el tiempo restante
-  spancuenta.innerText=`Faltan: ${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`
-  console.log(`Faltan: ${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`);
-}
+//   // Mostrar el tiempo restante
+//   spancuenta.innerText=`Faltan: ${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`
+//   console.log(`Faltan: ${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`);
+// }
 
-// Llamar a la función cada segundo
-const intervalo = setInterval(calcularCuentaRegresiva, 1000);
+// // Llamar a la función cada segundo
+// const intervalo = setInterval(calcularCuentaRegresiva, 1000);
 
  
  
