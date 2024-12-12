@@ -1,17 +1,29 @@
 
-poner mas lindo
-colores y vestimenta
-confirmar con nombre 
-lista en base de datos de confirmar
 
-agregar descripcion mas linda en el precio de la tarjeta
-especificar en algun sitio que se puede ir pagando en cuotas
+centrar y agregar iconos
+confirmar con nombre 
+
+
+
+para confirmar con nombre voy a usar la url para poner los datos del usuario. con un codigo para que unico 
+problema es que me modifiquen la base de datos quiero que la base de datos se modifique a mano nadamas
+quiero que busque cada dato si coinside con algun codigo 
+lista en base de datos de confirmar
+va a pedir numero de invitado y codigo de 4 digitos para ver quien es, para no pedir el numero de documento que es muy invasivo 
+el numero de documento se pide despues 
+******************************************************************************************************
+Buzon de deseos 
+Nos encantaría leer tus buenos deseo.
+¡Dejanos un mensaje que recordaremos por siempre!
 
 
 
 excel compartir lista
-scroll con movimiento
-fondo fotos con decorados de flores 
+
+
+
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 Será un privilegio contar con tu presencia en este momento tan importante para nosotros.
 
@@ -23,3 +35,4 @@ La confirmación se realizará una vez recibido el pago completo junto con el en
 Si por algún motivo no te resulta posible cubrir el monto total, no dudes en contactarnos para conversar.
 Lo más importante para nosotros es que puedas acompañarnos en este día tan especial.
 """""""""""""""""""""""""""""""""""""""""""""""""""
+

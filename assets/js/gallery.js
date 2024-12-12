@@ -6,7 +6,7 @@ async function loadGalleryImages() {
   const galleryContainer = document.getElementById('imageGallery');
   
   try {
-  
+   
     // Aquí puedes listar manualmente las imágenes de tu galería
     const images = [
         
@@ -27,7 +27,6 @@ async function loadGalleryImages() {
      '15.png',
      '16.jpg',
      '17.jpg',
-     
      '19.jpg',
      '20.jpg',
      '21.jpg',

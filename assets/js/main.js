@@ -1,8 +1,8 @@
-/*document.addEventListener('DOMContentLoaded', () => {
-    loadPage('principal', links);
+document.addEventListener('DOMContentLoaded', () => {
+    // loadPage('principal', links);
     pieAnio= document.getElementById('pieAño');
-    pieAnio.innerHTML = `&copy; ${new Date().getFullYear()} cdeorta`;
-});*/
+    pieAnio.innerHTML = `&copy; ${new Date().getFullYear()} cdeorta-dev.github.io`;
+});
 
 /*function loadPage(pageName, cb) {
     fetch(`assets/templates/${pageName}.handlebars`)
