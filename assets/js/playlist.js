@@ -32,10 +32,10 @@ class PlaylistManager {
     });
   }
 
-  addSong() {
+  async addSong() {
     const songName = document.getElementById('songName').value;
     const artistName = document.getElementById('artistName').value;
-
+    await  agregarCancion(songName, artistName)
     const newSong = {
       id: Date.now(),
       song: songName,
@@ -50,6 +50,7 @@ class PlaylistManager {
     this.renderSongs();
     this.form.reset();
   }
+  
 
   voteSong(songId, increment = true) {
     const song = this.songs.find(s => s.id === songId);
@@ -71,19 +72,16 @@ class PlaylistManager {
       songElement.className = 'song-item';
       songElement.innerHTML = `
         <div class="song-info">
-          <div class="song-details">
+          <div class="song-details" style="background-color: rgba(0,0,0,0.05);">
             <h5>${song.song}</h5>
             <p>${song.artist}</p>
-          </div>
-          <div class="song-votes">
-            <button class="vote-button" onclick="playlistManager.voteSong(${song.id}, false)">
-              <i class="fas fa-thumbs-down"></i>
-            </button>
-            <span>${song.votes}</span>
-            <button class="vote-button" onclick="playlistManager.voteSong(${song.id})">
-              <i class="fas fa-thumbs-up"></i>
+              <div class="vote-buttons">
+            <button class="btn btn-sm btn-outline-primary" onclick="playlistManager.voteSong(${song.id}, true)">
+              <i class="fas fa-thumbs-up"></i> ${song.votes}
             </button>
           </div>
+          </div>
+        
         </div>
       `;
       this.songList.appendChild(songElement);
@@ -112,6 +110,8 @@ function agregarCancion(Nombre, Artista) {
     Artista: Artista,
     Nombre: Nombre,
     fecha: firebase.firestore.FieldValue.serverTimestamp()
+  }).catch((error)=>{
+    console.error("Error al guardar cancion: ", error);
   });
 }
 
@@ -121,7 +121,7 @@ function obtenerCanciones() {
     .orderBy('fecha', 'desc')
     .get()
     .then((querySnapshot) => {
-      console.log(querySnapshot)
+     
       querySnapshot.forEach((doc) => {
         console.log(doc.id, " => ", doc.data());
       });
@@ -135,7 +135,7 @@ function obtenerCanciones() {
 async function obtenerCancionesAsync() {
   try {
     const querySnapshot = await db.collection('canciones')
-      .orderBy('timestamp', 'desc')
+    .orderBy('fecha', 'desc')
       .get();
     
     querySnapshot.forEach((doc) => {

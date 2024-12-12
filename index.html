@@ -36,18 +36,28 @@
       }
 
       .hero-section {
-
-        background-size: cover;
-        padding: 8rem 0;
         position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         overflow: hidden;
+        padding: 8rem 0;
       }
 
-      .floating-hearts {
-        position: absolute;
+      .hero-background {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 100%;
-        pointer-events: none;
+        height: 100vh;
+        background-image: url('assets/img/logo.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1;
+        opacity: 0.3;
+        background-color: var(--color-beige);
       }
 
       .wedding-title {
@@ -145,11 +155,53 @@
         background-color: var(--color-dorado);
         transform: scale(1.05);
       }
+
+      .gallery-container {
+        width: 100%;
+        overflow-x: auto;
+        padding: 20px 0;
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-dorado) var(--color-beige);
+      }
+
+      .gallery-container::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .gallery-container::-webkit-scrollbar-track {
+        background: var(--color-beige);
+        border-radius: 4px;
+      }
+
+      .gallery-container::-webkit-scrollbar-thumb {
+        background-color: var(--color-dorado);
+        border-radius: 4px;
+      }
+
+      .gallery-wrapper {
+        display: flex;
+        gap: 20px;
+        padding: 10px;
+      }
+
+      .gallery-image {
+        height: 250px;
+        min-width: 350px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .gallery-image:hover {
+        transform: scale(1.05);
+      }
     </style>
 
     
     <!-- Custom styles for this template -->
     <link href="product.css" rel="stylesheet">
+    <script src="assets/js/gallery.js" defer></script>
   </head>
   <body>
     <div class="audio-player-container">
@@ -235,15 +287,26 @@
 
 <div id="content"><main>
   <div class="hero-section text-center">
- 
-    <h1 class="wedding-title">Abigail & César</h1>
-    <p class="lead">Nos casamos</p>
-    <h2>5 de Abril de 2025</h2>
-    <div class="countdown-section" id="countdown">
-      <!-- Cuenta regresiva aquí -->
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <h1 class="wedding-title">Abigail & César</h1>
+      <p class="lead">Nos casamos</p>
+      <h2>5 de Abril de 2025</h2>
+      <div class="countdown-section" id="countdown">
+        <!-- Cuenta regresiva aquí -->
+      </div>
     </div>
   </div>
-
+  <div class="container-fluid my-5 w-100">
+    <div class="gallery-section info-card w-100 container-fluid">
+      <h2 class="section-title">✨ Nuestra Historia ✨</h2>
+      <div class="gallery-container" style="min-height: 600px; width: 100%; ">
+        <div class="gallery-wrapper" id="imageGallery" style="height: 100%; ">
+          <!-- Las imágenes se cargarán dinámicamente aquí -->
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container my-5">
     <div class="row">
       <div class="col-md-4">
@@ -271,16 +334,31 @@
       <div class="col-md-4">
         <div class="info-card">
           <h3>Tarjeta</h3>
-          <p>Valor: $40,000</p>
-          <p>Datos bancarios:</p>
-          <p>Alias: cdeorta</p>
+          <p>Será un privilegio contar con tu presencia en este momento tan importante para nosotros.</p>
+          <p>Como una manera de simplificar la tradicional lista de regalos, hemos decidido que el costo de asistencia será de $40,000 por invitado,
+            lo cual también será el obsequio para nuestra nueva etapa.</p>
+          <p>La confirmación se realizará una vez recibido el pago completo junto con el envío de los datos (DNI) de los asistentes.</p>
+          <p>Si por algún motivo no te resulta posible cubrir el monto total, no dudes en contactarnos para conversar.</p>
+          <p>Lo más importante para nosotros es que puedas acompañarnos en este día tan especial.</p>
           
         </div>
       </div>
+      <div class="col-md-4">
+        <div class="info-card">
+          <h3>vestimenta</h3>
+          <p>colores </p>
+          <p>preguntar como ir que colores usar</p>
+          <p>colores prohividos</p>
+          
+        </div>
+      </div>
+
     </div>
 
     <div class="text-center my-5">
       <h3>¿Nos acompañas?</h3>
+      <h4>Nombre apellido(o grupo familiar)</h4>
+      <p>si ya confirmo no va aparecer el boton de confirmar asistencia</p>
       <button class="confirm-button" id="confirmarAsistencia">
         <a  target="_blank" class="link-secondary text-decoration-none" href="https://api.whatsapp.com/send/?phone=542914681055&text=Hola si confirmo&type=phone_number&app_absent=0">
         Confirmar Asistencia
@@ -317,6 +395,8 @@
         </div>
       </div>
     </div>
+
+
   </div>
 </main>
 </div>
