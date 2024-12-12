@@ -6,9 +6,7 @@ async function loadGalleryImages() {
   const galleryContainer = document.getElementById('imageGallery');
   
   try {
-    const response = await fetch('assets/img/galeria/');
-    if (!response.ok) throw new Error('No se pudieron cargar las imágenes');
-    
+  
     // Aquí puedes listar manualmente las imágenes de tu galería
     const images = [
         
