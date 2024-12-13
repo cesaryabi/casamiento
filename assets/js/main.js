@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     nomInvitado= document.getElementById('nomInvitado');
     const urlParams = new URLSearchParams(window.location.search);
     const nombre = urlParams.get('nombre');
+    if(nombre){
+   
     nombreespacios=nombre.replace(/_/g," ")
-    nomInvitado.innerText =nombre? `${nombreespacios}`:"";
+    nomInvitado.innerText =nombre? `${nombreespacios}`:"";}
    
 });
 

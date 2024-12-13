@@ -15,6 +15,11 @@ const app = firebase.initializeApp(firebaseConfig);
 // Inicializar Firestore
 const db = firebase.firestore();
 
+
+
+
+
+
 class PlaylistManager {
   constructor() {
     this.songs = [];
@@ -36,52 +41,44 @@ class PlaylistManager {
     const songName = document.getElementById('songName').value;
     const artistName = document.getElementById('artistName').value;
     await  agregarCancion(songName, artistName)
-    const newSong = {
-      id: Date.now(),
-      song: songName,
-      artist: artistName,
-      votes: 0,
-      addedBy: 'Invitado', // Podrías agregar un campo para el nombre del invitado
-      timestamp: new Date()
-    };
-
-    this.songs.push(newSong);
-    this.saveSongs();
-    this.renderSongs();
+ 
+    //this.saveSongs();
+    this.loadSongs()
     this.form.reset();
   }
   
 
-  voteSong(songId, increment = true) {
-    const song = this.songs.find(s => s.id === songId);
-    if (song) {
-      song.votes += increment ? 1 : -1;
-      this.saveSongs();
-      this.renderSongs();
+ async voteSong(songId) {
+   console.log(songId)
+   await actualizarVotoCancion(songId)
+   this.loadSongs()
     }
-  }
+  
 
-  renderSongs() {
+  async renderSongs() {
+    console.log("sigo por aca 2")
+   
     this.songList.innerHTML = '';
     
     // Ordenar canciones por votos
-    const sortedSongs = [...this.songs].sort((a, b) => b.votes - a.votes);
+    const sortedSongs = this.songs.sort((a, b) => b.voto - a.voto);
     
     sortedSongs.forEach(song => {
       const songElement = document.createElement('div');
       songElement.className = 'song-item';
       songElement.innerHTML = `
         <div class="song-info">
-          <div class="song-details" style="background-color: rgba(0,0,0,0.05);">
-            <h5>${song.song}</h5>
-            <p>${song.artist}</p>
-              <div class="vote-buttons">
-            <button class="btn btn-sm btn-outline-primary" onclick="playlistManager.voteSong(${song.id}, true)">
-              <i class="fas fa-thumbs-up"></i> ${song.votes}
-            </button>
+          <div class="song-details" style="background-color: rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h5>${song.Nombre}</h5>
+              <p>${song.Artista}</p>
+            </div>
+            <div class="vote-buttons">
+              <button class="btn btn-sm btn-outline-primary" onclick="playlistManager.voteSong('${song.id}')">
+                <i class="fas fa-thumbs-up"></i> ${song.voto}
+              </button>
+             </div>
           </div>
-          </div>
-        
         </div>
       `;
       this.songList.appendChild(songElement);
@@ -92,11 +89,17 @@ class PlaylistManager {
     localStorage.setItem('weddingSongs', JSON.stringify(this.songs));
   }
 
-  loadSongs() {
-    const savedSongs = localStorage.getItem('weddingSongs');
+  async loadSongs() {
+    console.log("estoy por aca")
+    const savedSongs = await  obtenerCancionesAsync() 
+    const savedSongs_ = localStorage.getItem('weddingSongs');
+
+    console.log( savedSongs_)
+    console.log(savedSongs)
     if (savedSongs) {
-      this.songs = JSON.parse(savedSongs);
-      this.renderSongs();
+      this.songs = savedSongs;
+      console.log(this.songs)
+      await this.renderSongs();
     }
   }
 }
@@ -109,6 +112,7 @@ function agregarCancion(Nombre, Artista) {
   return db.collection('canciones').add({
     Artista: Artista,
     Nombre: Nombre,
+    voto:0,
     fecha: firebase.firestore.FieldValue.serverTimestamp()
   }).catch((error)=>{
     console.error("Error al guardar cancion: ", error);
@@ -130,18 +134,33 @@ function obtenerCanciones() {
       console.error("Error obteniendo canciones: ", error);
     });
 }
-
+async function actualizarVotoCancion(songId) {
+  const songRef = db.collection('canciones').doc(songId);
+  await songRef.update({
+    voto: firebase.firestore.FieldValue.increment(1) // Incrementa el voto en 1
+  }).catch((error) => {
+    console.error("Error al actualizar el voto: ", error);
+  });
+}
 // Opción 2: Usando async/await
 async function obtenerCancionesAsync() {
   try {
     const querySnapshot = await db.collection('canciones')
     .orderBy('fecha', 'desc')
       .get();
-    
+    let canciones=[];
     querySnapshot.forEach((doc) => {
+      let cancion = doc.data()
+      cancion.id=doc.id
+      canciones.push(cancion)
       console.log(doc.id, " => ", doc.data());
     });
+    return canciones;
   } catch (error) {
     console.error("Error obteniendo canciones: ", error);
   }
 } 
+
+
+
+
