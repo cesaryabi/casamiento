@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // loadPage('principal', links);
     pieAnio= document.getElementById('pieAño');
     pieAnio.innerHTML = `&copy; ${new Date().getFullYear()} cdeorta-dev.github.io`;
+    nomInvitado= document.getElementById('nomInvitado');
+    const urlParams = new URLSearchParams(window.location.search);
+    const nombre = urlParams.get('nombre');
+    nombreespacios=nombre.replace(/_/g," ")
+    nomInvitado.innerText =nombre? `${nombreespacios}`:"";
+   
 });
 
 /*function loadPage(pageName, cb) {

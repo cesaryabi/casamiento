@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="nombreinvitado">nombre del invitado</label>
+    <input type="text" name="" id="nombreinvitado"><br>
+    <label for="textoInvitado">texto para invitacion</label>
+    <input type="text" name="" id="textoInvitado"><br>
+    <label for="whatsapp">whatsapp a quien queres invitar(sin 0 y sin 15)</label>
+    <input type="number" name="" id="whatsapp">
+    <button>enviar</button>
+<script>
+
+    let nombre = document.querySelector("#nombreinvitado")
+    
+    let texto = document.querySelector("#textoInvitado")
+    let numero = document.querySelector("#whatsapp")
+   boton = document.querySelector("button")
+   boton.addEventListener("click",()=>{
+  
+    linkinvitacion=crearlink(nombre.value,texto.value)
+    window.open(`https://api.whatsapp.com/send/?phone=54${numero.value}&text=${linkinvitacion}&type=phone_number&app_absent=0"`, '_blank');
+   })
+
+    function crearlink(nombre,texto){
+            nombreprocesado = nombre.replace(/ /g, "_");
+            textoprocesado=texto.replace(/ /g, "%20");
+            return `https://cesaryabi.github.io/casamiento/?nombre=${nombreprocesado}%20${textoprocesado}`
+    }
+</script>
+</body>
+</html>
