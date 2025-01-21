@@ -103,6 +103,89 @@ class PlaylistManager {
     }
   }
 }
+class DeseosManager {
+  constructor() {
+    this.deseos = [];
+    this.form = document.getElementById('busonForm');
+    this.deseosList = document.getElementById('deseosList');
+    
+    this.initializeEventListeners();
+    this.loadSongs();
+  }
+
+  initializeEventListeners() {
+    this.form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      this.addSong();
+    });
+  }
+
+  async addSong() {
+    const songName = document.getElementById('songName').value;
+    const artistName = document.getElementById('artistName').value;
+    await  agregarCancion(songName, artistName)
+ 
+    //this.saveSongs();
+    this.loadSongs()
+    this.form.reset();
+  }
+  
+
+ async voteSong(songId) {
+   console.log(songId)
+   await actualizarVotoCancion(songId)
+   this.loadSongs()
+    }
+  
+
+  async renderSongs() {
+    console.log("sigo por aca 2")
+   
+    this.songList.innerHTML = '';
+    
+    // Ordenar canciones por votos
+    const sortedSongs = this.songs.sort((a, b) => b.voto - a.voto);
+    
+    sortedSongs.forEach(song => {
+      const songElement = document.createElement('div');
+      songElement.className = 'song-item';
+      songElement.innerHTML = `
+        <div class="song-info">
+          <div class="song-details" style="background-color: rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h5>${song.Nombre}</h5>
+              <p>${song.Artista}</p>
+            </div>
+            <div class="vote-buttons">
+              <button class="btn btn-sm btn-outline-primary" onclick="playlistManager.voteSong('${song.id}')">
+                <i class="fas fa-thumbs-up"></i> ${song.voto}
+              </button>
+             </div>
+          </div>
+        </div>
+      `;
+      this.songList.appendChild(songElement);
+    });
+  }
+
+  saveSongs() {
+    localStorage.setItem('weddingSongs', JSON.stringify(this.songs));
+  }
+
+  async loadSongs() {
+    console.log("estoy por aca")
+    const savedSongs = await  obtenerCancionesAsync() 
+    const savedSongs_ = localStorage.getItem('weddingSongs');
+
+    console.log( savedSongs_)
+    console.log(savedSongs)
+    if (savedSongs) {
+      this.songs = savedSongs;
+      console.log(this.songs)
+      await this.renderSongs();
+    }
+  }
+}
 
 // Inicializar el administrador de playlist
 const playlistManager = new PlaylistManager(); 

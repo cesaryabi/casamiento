@@ -6,17 +6,17 @@
 
 
 
-confirmar con dni
 
 
-menores de edad
+
+
 ******************************************************************************************************
 Buzon de deseos 
 Nos encantaría leer tus buenos deseo.
 ¡Dejanos un mensaje que recordaremos por siempre!
 
 
-
+confirmar con dni
 crear base de datos de invitados
 
 converlir json a excel para descargar invitados
