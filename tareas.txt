@@ -6,12 +6,10 @@
 
 
 
-aclarar vestimenta
-acomodar horarios
-vestimenta
 confirmar con dni
-poner dia de confirmacion
 
+
+menores de edad
 ******************************************************************************************************
 Buzon de deseos 
 Nos encantaría leer tus buenos deseo.
@@ -27,5 +25,6 @@ excel compartir lista
 
 
 
-seguridad de los token ver 
+notificaciones
+ocultar token
 

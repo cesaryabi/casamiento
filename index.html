@@ -339,7 +339,7 @@
           <i class="fas fa-church fa-3x" style="color: #808080; display: block; text-align: center;"></i>
           <br>
           <h2 class="section-title text-center">Ceremonia</h2>
-          <p>El día 5 de abril a las 18:00 hs</p>
+          <p>El día 5 de abril a las 19:00 hs</p>
           <p>Auditorio Familia Cristiana</p>
           <p>Direccion: Ingaterra 450</p>
           <a href="https://maps.app.goo.gl/sahJ2xRngrdu5F6UA" class="btn confirm-button" target="_blank">
@@ -353,7 +353,7 @@
           <i class="fas fa-glass-cheers fa-3x" style="color: #808080; display: block; text-align: center;"></i>
           <br>
           <h2 class="section-title text-center">Fiesta</h2>
-          <p>El día 5 de abril a las 20:30hs.</p>
+          <p>El día 5 de abril a las 21:02hs.</p>
           <p>Salón Juventus (Empleados de Comercio, Aldea romana)</p>
           <a href="https://maps.app.goo.gl/owU1pBFEvMRc3fkEA" class="btn confirm-button" target="_blank">
             Ver ubicación
@@ -361,21 +361,37 @@
         </div>
       </div>
 
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 text-center" id="tarjeta">
         <div class="info-card">
           <i class="fas fa-gift fa-3x" style="color: #808080; display: block; text-align: center;"></i>
           <br>
           <h2 class="section-title text-center">Tarjeta</h2>
 
           <p>Será un privilegio contar con tu presencia en este momento tan importante para nosotros.</p>
-          <p>Como una manera de simplificar la tradicional lista de regalos, hemos decidido que el costo de asistencia será de $40,000 por invitado, lo cual también será el obsequio para nuestra nueva etapa.
+          <p>Como una manera de simplificar la tradicional lista de regalos, hemos decidido que el costo de asistencia será de $40,000 por invitado <span id="menores"></span>, lo cual también será el obsequio para nuestra nueva etapa.
           </p>
           <p>Este monto puede abonarse en cuotas hasta el 20 de marzo de 2024.</p>
           <p>La confirmación se realizará una vez recibido el pago completo junto con el envío de los datos (DNI) de los asistentes.</p>
           <p>Si por algún motivo no te resulta posible cubrir el monto total, no dudes en contactarnos para conversar. </p>
           <p>Lo más importante para nosotros es que puedas acompañarnos en este día tan especial.</p>
           
-          <p>alias: <b id="alias" style="cursor: pointer;" onclick="copiarAlias()">abiycesar.2025</b></p>
+          <p>alias: <b id="alias" style="cursor: pointer;" >abiycesar.2025</b> </p>
+          <div id="mensaje-copiado" class="alert alert-success d-none" role="alert">texto copiado</div>
+          <div  onclick="copiarAlias()" class="confirm-button" >copiar alias</div>
+          
+        </div>
+      </div>
+      <div class="col-md-4 text-center d-none" id="regalos">
+        <div class="info-card">
+          <i class="fas fa-gift fa-3x" style="color: #808080; display: block; text-align: center;"></i>
+          <br>
+          <h2 class="section-title text-center">Regalos</h2>
+
+        
+          <p>alias: <b id="alias" style="cursor: pointer;" >abiycesar.2025</b> </p>
+          <div id="mensaje-copiado" class="alert alert-success d-none" role="alert">texto copiado</div>
+          <div  onclick="copiarAlias()" class="confirm-button" >copiar alias</div>
+
           
         </div>
       </div>
@@ -383,23 +399,24 @@
         <div class="info-card">
           <div style="display: flex; justify-content: center; gap: 20px;">
             <span class="material-icons" style="font-size: 48px; color: #808080;">
-              style
+              <img src="assets/img/traje.png" width="100px" alt="">
             </span>
           </div>
           <br>
-          <h2 class="section-title text-center">Vestimenta</h2>  
+          <h2 class="section-title text-center">Dress-Code</h2>  
+          <h3>FORMAL ELEGANTE</h3>
 
           <p>Por favor  los hombres eviten el siguiente color:</p>
           <div style="display: flex; gap: 10px; margin: 15px 0; justify-content: center;">
-            <div style="width: 50px; height: 50px; background-color: #000080; border: 1px solid #ccc;" title="Azul Marino"></div>
+            <div style="width: 50px; height: 50px; background-color: #000080; border: 3px solid #ffffff; border-radius: 50%; " title="Azul Marino"></div>
          
           </div>
           <p>Por favor las mujeres eviten el siguiente color:</p>
-          <div style="display: flex; gap: 10px; margin: 15px 0; justify-content: center;">
+          <div style="display: flex; gap: 10p x; margin: 15px 0; justify-content: center;">
            
-            <div style="width: 50px; height: 50px; background-color: #FFFFFF; border: 1px solid #ccc;" title="Blanco"></div>
+            <div style="width: 50px; height: 50px; background-color: #FFFFFF; border: 2px solid #000000; border-radius: 50%;" title="Blanco"></div>
           </div>
-          <p><i>El blanco está reservado para la novia</i></p>
+          <p><i>Te animamos a llenar la fiesta de colores</i></p>
           <p><i>Gracias por tu comprensión</i></p>
         </div>
       </div>
@@ -416,6 +433,7 @@
         Confirmar Asistencia
         </a>
       </button>
+      <p>fecha de confirmacion hasta 7/02/2025</p>
     </div>
 
     <div class="music-section info-card">
@@ -456,13 +474,14 @@
 </div>
 
 
-<footer class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md">
+<footer class="container center">
+
+    <div class="col-12">
       <a class="link-secondary text-decoration-none"  href="https://cdeorta-dev.github.io/" target="_blank" rel="noopener noreferrer">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
       <small id="pieAño" class="d-block mb-3 text-body-secondary">&copy; 2024 cdeorta-dev</small></a>
     </div>
+
     <!-- <div class="col-6 col-md">
       <h5>Redes Sociales</h5>
       <ul class="list-unstyled text-small">
@@ -477,12 +496,19 @@
      
       </ul>
     </div> -->
-    <div class="col-3 col-md">
+    <div class=" col-md">
       <h5>Contactos</h5>
       <ul class="list-unstyled text-small">
-        <li><a  target="_blank" class="link-secondary text-decoration-none" href="https://api.whatsapp.com/send/?phone=542914681055&text=Hola si confirmo&type=phone_number&app_absent=0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+        <li><a  target="_blank" class="link-secondary text-decoration-none" href="https://api.whatsapp.com/send/?phone=542914681055&text=Hola ♥&type=phone_number&app_absent=0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
   <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.296.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
 </svg> WhatsApp novio: +54-291-4681055 </a></li>
+     
+   
+      </ul>
+      <ul class="list-unstyled text-small">
+        <li><a  target="_blank" class="link-secondary text-decoration-none" href="https://api.whatsapp.com/send/?phone=542914224820&text=Hola♥&type=phone_number&app_absent=0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.296.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+</svg> WhatsApp noviA: +54-291-4224820 </a></li>
      
    
       </ul>
@@ -513,11 +539,19 @@
 
 <script>
 function copiarAlias() {
+  
+  const mensajeCopiado = document.getElementById("mensaje-copiado");
+  console.log()
+  mensajeCopiado.classList.remove("d-none");
+  setTimeout(()=>{
+    mensajeCopiado.classList.add("d-none")
+  },2000)
+
     const alias = "abiycesar.2025";
     navigator.clipboard.writeText(alias)
         .then(() => {
             // Opcional: Mostrar una pequeña notificación
-            alert("¡Alias copiado!");
+            
         })
         .catch(err => {
             console.error('Error al copiar: ', err);

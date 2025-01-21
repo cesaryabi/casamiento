@@ -85,13 +85,66 @@
                     <i class="fas fa-users"></i> Tipo de invitación
                 </label>
                 <div class="form-check">
+                    <input class="form-check-input" type="radio" id="tipoInvitadoV" name="tipoInvitacion" value="Grupal">
+                    <label class="form-check-label" for="tipoInvitadoV">
+                       Grupal
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="radio" id="tipoInvitadoS" name="tipoInvitacion" value="Individual">
+                    <label class="form-check-label" for="tipoInvitadoS">
+                       Individual
+                    </label>
+                </div>
+                <small class="text-muted">La invitacion es para un grupo familiar o para una persona individual</small>
+            </div>
+            <div class="mb-3" id="nino">
+                <label class="form-label"> Con menores
+                    <i class="fas fa-users"></i> 
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="ninoSi" name="nino">
+                    <label class="form-check-label" for="ninoSi">
+                       Si
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="radio" id="ninoNo" name="nino">
+                    <label class="form-check-label" for="ninoNo">
+                       No
+                    </label>
+                </div>
+                <small class="text-muted">esta invitacion es para menor o grupo familiar con menores que pagan tarjeta</small>
+            </div>
+            <div class="mb-3" id="nino">
+                <label class="form-label"> Paga tarjeta?
+                    <i class="fas fa-users"></i> 
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="tarjetaSi" name="tarjeta">
+                    <label class="form-check-label" for="tarjetaSi">
+                       Si
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="radio" id="tarjetaNo" name="tarjeta">
+                    <label class="form-check-label" for="tarjetaNo">
+                       No
+                    </label>
+                </div>
+                <small class="text-muted">el invitado paga tarjeta dependiendo se muestra lista de regalo o pagar tarjeta</small>
+            </div>
+            
+            <!-- <div class="mb-3">
+                <label class="form-label">
+                    <i class="fas fa-users"></i>
+                </label>
+                <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="tipoInvitacion">
                     <label class="form-check-label" for="tipoInvitacion">
                         Invitación grupal/familiar
                     </label>
                 </div>
                 <small class="text-muted">Marca la casilla si es para grupo familiar o pareja. Desmarca si es individual.</small>
-            </div>
+            </div> -->
+
 
             <div class="mb-3">
                 <label for="textoInvitado" class="form-label">
@@ -120,20 +173,30 @@
         let nombre = document.querySelector("#nombreinvitado")
         let texto = document.querySelector("#textoInvitado")
         let numero = document.querySelector("#whatsapp")
-        let tipo = document.querySelector("#tipoInvitacion")
+        let tipo = document.querySelector("#tipoInvitadoV")
+        let menores = document.querySelector("#ninoSi")
+        let tarjeta = document.querySelector("#tarjetaSi")
         console.dir(tipo.checked)
         let boton = document.querySelector("button")
         
         boton.addEventListener("click", () => {
             linkinvitacion = crearlink(nombre.value, texto.value)
+   
             window.open(`https://api.whatsapp.com/send/?phone=54${numero.value}&text=${linkinvitacion}&type=phone_number&app_absent=0"`, '_blank');
         })
 
         function crearlink(nombre, texto) {
+
+            
+
+
+
             tipoInvitacion=tipo.checked?"v":"s";
+            haymenores= menores.checked?"s":"n";
+            pagatarjeta = tarjeta.checked?"s":"n";
             nombreprocesado = nombre.replace(/ /g, "_");
             textoprocesado = texto.replace(/ /g, "%20");
-            return `https://cesaryabi.github.io/casamiento/?n=${nombreprocesado}.${tipoInvitacion}%20${textoprocesado}`
+            return `https://cesaryabi.github.io/casamiento/?n=${nombreprocesado}.${tipoInvitacion}.${haymenores}.${pagatarjeta}%20${textoprocesado}`
         }
     </script>
 </body>

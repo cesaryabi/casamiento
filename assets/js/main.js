@@ -5,20 +5,47 @@ document.addEventListener('DOMContentLoaded', () => {
     nomInvitado= document.getElementById('nomInvitado');
     tipoinvitacionText= document.getElementById('tipoinvitacion');
     const urlParams = new URLSearchParams(window.location.search);
-    const dato = urlParams.get('n').split(".");//nombre
-    //const tipoinvitacion = urlParams.get('t');//tipo
-    nombre= dato[0]
-    tipoinvitacion= dato[1]
-    if(nombre){
+    try{
+      const dato = urlParams.get('n').split(".");//nombre
+      //const tipoinvitacion = urlParams.get('t');//tipo
+      nombre= dato[0]
+      tipoinvitacion= dato[1]
+      mostrarmenores= dato[2]
+      mostrartarjeta= dato[3]
+      if(nombre){
+     
+        nombreespacios=nombre.replace(/_/g," ")
+        nomInvitado.innerText =nombre? `${nombreespacios}`:"";
+      }
+      if(tipoinvitacion=="s"){
+        tipoinvitacionText.innerText="¿Nos acompañas?"
+      }else{
+        tipoinvitacionText.innerText="¿Nos acompañan?"
+      }
+
+      if(mostrarmenores=="s"){
+        menorestext=document.getElementById('menores');
+        menorestext.innerText="(Menores de entre 4 y 12 años pagan la mitad)"
+        console.log("menores")
+      }
+      if(mostrartarjeta=="s"){
+        let mostrartarjetaText=document.getElementById('tarjeta');
+        let mostrarregalosText=document.getElementById('regalos');
+        mostrarregalosText.classList.add("d-none")
+        mostrartarjetaText.classList.remove("d-none");
+        
+      }else{
+        let mostrartarjetaText=document.getElementById('tarjeta');
+        let mostrarregalosText=document.getElementById('regalos');
+        mostrartarjetaText.classList.add("d-none")
+        mostrarregalosText.classList.remove("d-none");
+      }
+
+
+    }catch{
+      console.log("sin nombre")
+    }
    
-      nombreespacios=nombre.replace(/_/g," ")
-      nomInvitado.innerText =nombre? `${nombreespacios}`:"";
-    }
-    if(tipoinvitacion=="s"){
-      tipoinvitacionText.innerText="¿Nos acompañas?"
-    }else{
-      tipoinvitacionText.innerText="¿Nos acompañan?"
-    }
 
    
 });
