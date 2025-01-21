@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
   audioControl.addEventListener('click', togglePlay);
 
   // Manejar la interacción del usuario
-  document.addEventListener('click', function() {
-    if (!isPlaying) {
-      togglePlay();
-    }
-  }, { once: true });
+  // document.addEventListener('click', function() {
+  //   if (!isPlaying) {
+  //     togglePlay();
+  //   }
+  // }, { once: true });
 
   // Reanudar la música cuando el usuario vuelve a la pestaña
   document.addEventListener('visibilitychange', function() {

@@ -3,12 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
     pieAnio= document.getElementById('pieAño');
     pieAnio.innerHTML = `&copy; ${new Date().getFullYear()} cdeorta-dev.github.io`;
     nomInvitado= document.getElementById('nomInvitado');
+    tipoinvitacionText= document.getElementById('tipoinvitacion');
     const urlParams = new URLSearchParams(window.location.search);
-    const nombre = urlParams.get('nombre');
+    const dato = urlParams.get('n').split(".");//nombre
+    //const tipoinvitacion = urlParams.get('t');//tipo
+    nombre= dato[0]
+    tipoinvitacion= dato[1]
     if(nombre){
    
-    nombreespacios=nombre.replace(/_/g," ")
-    nomInvitado.innerText =nombre? `${nombreespacios}`:"";}
+      nombreespacios=nombre.replace(/_/g," ")
+      nomInvitado.innerText =nombre? `${nombreespacios}`:"";
+    }
+    if(tipoinvitacion=="s"){
+      tipoinvitacionText.innerText="¿Nos acompañas?"
+    }else{
+      tipoinvitacionText.innerText="¿Nos acompañan?"
+    }
+
    
 });
 

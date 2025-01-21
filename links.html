@@ -1,36 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="auto">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Generador de Invitaciones</title>
+    
+    <!-- Bootstrap y estilos -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-rosa: #FFD1DC;
+            --color-beige: #F5E6E8;
+            --color-dorado: #D4AF37;
+        }
+
+        body {
+            background-color: var(--color-beige);
+            font-family: 'Playfair Display', serif;
+            padding: 2rem;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: var(--color-dorado);
+            font-size: 2.5rem;
+            font-family: 'Great Vibes', cursive;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .form-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .form-control {
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-enviar {
+            background-color: var(--color-rosa);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        .btn-enviar:hover {
+            background-color: var(--color-dorado);
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-    <label for="nombreinvitado">nombre del invitado</label>
-    <input type="text" name="" id="nombreinvitado"><br>
-    <label for="textoInvitado">texto para invitacion</label>
-    <input type="text" name="" id="textoInvitado"><br>
-    <label for="whatsapp">whatsapp a quien queres invitar(sin 0 y sin 15)</label>
-    <input type="number" name="" id="whatsapp">
-    <button>enviar</button>
-<script>
+    <div class="container">
+        <div class="form-container">
+            <h1 class="section-title">Generador de Invitaciones</h1>
+            
+            <div class="mb-3">
+                <label for="nombreinvitado" class="form-label">
+                    <i class="fas fa-user"></i> Nombre del invitado
+                </label>
+                <input type="text" class="form-control" id="nombreinvitado" placeholder="Ingresa el nombre" onkeypress="return event.charCode != 46">
+            </div>
+                        
+            <div class="mb-3">
+                <label class="form-label">
+                    <i class="fas fa-users"></i> Tipo de invitación
+                </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tipoInvitacion">
+                    <label class="form-check-label" for="tipoInvitacion">
+                        Invitación grupal/familiar
+                    </label>
+                </div>
+                <small class="text-muted">Marca la casilla si es para grupo familiar o pareja. Desmarca si es individual.</small>
+            </div>
 
-    let nombre = document.querySelector("#nombreinvitado")
-    
-    let texto = document.querySelector("#textoInvitado")
-    let numero = document.querySelector("#whatsapp")
-   boton = document.querySelector("button")
-   boton.addEventListener("click",()=>{
-  
-    linkinvitacion=crearlink(nombre.value,texto.value)
-    window.open(`https://api.whatsapp.com/send/?phone=54${numero.value}&text=${linkinvitacion}&type=phone_number&app_absent=0"`, '_blank');
-   })
+            <div class="mb-3">
+                <label for="textoInvitado" class="form-label">
+                    <i class="fas fa-envelope"></i> Texto para invitación
+                </label>
+                <input type="text" class="form-control" id="textoInvitado" placeholder="Ingresa el texto personalizado">
+            </div>
 
-    function crearlink(nombre,texto){
+
+            <div class="mb-4">
+                <label for="whatsapp" class="form-label">
+                    <i class="fab fa-whatsapp"></i> WhatsApp (sin 0 y sin 15)
+                </label>
+                <input type="number" class="form-control" id="whatsapp" placeholder="Ejemplo: 2914681055">
+            </div>
+
+            <button class="btn btn-enviar">
+                <i class="fas fa-paper-plane"></i> Enviar Invitación
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let nombre = document.querySelector("#nombreinvitado")
+        let texto = document.querySelector("#textoInvitado")
+        let numero = document.querySelector("#whatsapp")
+        let tipo = document.querySelector("#tipoInvitacion")
+        console.dir(tipo.checked)
+        let boton = document.querySelector("button")
+        
+        boton.addEventListener("click", () => {
+            linkinvitacion = crearlink(nombre.value, texto.value)
+            window.open(`https://api.whatsapp.com/send/?phone=54${numero.value}&text=${linkinvitacion}&type=phone_number&app_absent=0"`, '_blank');
+        })
+
+        function crearlink(nombre, texto) {
+            tipoInvitacion=tipo.checked?"v":"s";
             nombreprocesado = nombre.replace(/ /g, "_");
-            textoprocesado=texto.replace(/ /g, "%20");
-            return `https://cesaryabi.github.io/casamiento/?nombre=${nombreprocesado}%20${textoprocesado}`
-    }
-</script>
+            textoprocesado = texto.replace(/ /g, "%20");
+            return `https://cesaryabi.github.io/casamiento/?n=${nombreprocesado}.${tipoInvitacion}%20${textoprocesado}`
+        }
+    </script>
 </body>
 </html>
