@@ -89,7 +89,7 @@ audio {
 @keyframes pulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+    box-shadow: 0 0 0 0 rgb(255, 255, 255);
   }
   70% {
     transform: scale(1.05);
