@@ -18,6 +18,8 @@
 --dia exacto para confirmar 4 
 --acomodar ubicacion civil
 --poner fiesta 20.30
+
+centrar fotos y acomodar al contenedor
 nombre de la persona que sube la cancion
 borrar temas repetidos
 

@@ -10,7 +10,7 @@ async function loadGalleryImages() {
     // Aquí puedes listar manualmente las imágenes de tu galería
     const images = [
         
-     '01.jpg',
+     '01.png',
      '02.jpg',
      '03.jpg',
      '04.jpg',
