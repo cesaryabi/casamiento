@@ -10,7 +10,7 @@ async function loadGalleryImages() {
     // Aquí puedes listar manualmente las imágenes de tu galería
     const images = [
         
-     '01.png',
+     '01.jpg',
      '02.jpg',
      '03.jpg',
      '04.jpg',
@@ -51,7 +51,7 @@ async function loadGalleryImages() {
     images.forEach(imageName => {
       const img = document.createElement('img');
       img.src = `https://cesaryabi.github.io/casamiento/assets/img/galeria/${imageName}?a=0`;
-      img.style= "height: 100%;"
+      img.style= "height: 100vw;  padding: 0;  margin: 0; width: 100vw;  display: block; "
       img.alt = 'Foto de nuestra historia';
       img.className = 'gallery-image';
       
