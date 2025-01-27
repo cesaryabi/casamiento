@@ -1,27 +1,29 @@
-poner letra cursiva de titulo
-qr de foto
-nos casamos mas grande
-poner verciculo
-pner telefono novia para confirmar
-dia exacto para confirmar 
+--nos casamos mas grande
+--poner verciculo
+--pner telefono novia para confirmar
+--sacar lo delas notitas 
+--sacar lo de conversar
+--no poner titulo
+--cambar fondo a blanco
+--poner un info con una foto de la 23 recortada con la cita biblia de cantar de los cantarese 8:7
 
-sacar lo delas notitas 
-sacar lo de conversar
-no poner titulo
-cambar fondo a blanco
-poner un info con una foto de la 23 recortada con la cita biblia de cantar de los cantarese 8:7
-
-
-
-
-confirmar con dni
+--poner fotos entre infos 
+--editar texto pago de tarketa 
 
 
 
 
+--cambiar de lugar la galeria de totos
+--subir fotos en galeria
+--dia exacto para confirmar 4 
+--acomodar ubicacion civil
+--poner fiesta 20.30
+nombre de la persona que sube la cancion
+borrar temas repetidos
 
 
-
+texto regalos
+confirmar con dni y mail
 
 
 

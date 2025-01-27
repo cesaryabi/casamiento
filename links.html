@@ -79,7 +79,16 @@
                 </label>
                 <input type="text" class="form-control" id="nombreinvitado" placeholder="Ingresa el nombre" onkeypress="return event.charCode != 46">
             </div>
-                        
+            <div class="mb-3">
+                <label for="diaconfirmacion" class="form-label">
+                    <i class="fas fa-user"></i> dia limite confirmacion
+                </label>
+                <input type="number" class="form-control" id="diaconfirmacion" placeholder="dia" >
+                <label for="mesconfirmacion" class="form-label">
+                    <i class="fas fa-user"></i> mes limite confirmacion
+                </label>
+                <input type="number" class="form-control" id="mesconfirmacion" placeholder="mes" >
+            </div>  
             <div class="mb-3">
                 <label class="form-label">
                     <i class="fas fa-users"></i> Tipo de invitación
@@ -97,6 +106,7 @@
                 </div>
                 <small class="text-muted">La invitacion es para un grupo familiar o para una persona individual</small>
             </div>
+
             <div class="mb-3" id="nino">
                 <label class="form-label"> Con menores
                     <i class="fas fa-users"></i> 
@@ -176,16 +186,18 @@
         let tipo = document.querySelector("#tipoInvitadoV")
         let menores = document.querySelector("#ninoSi")
         let tarjeta = document.querySelector("#tarjetaSi")
+        let diaconfirmacion = document.querySelector("#diaconfirmacion")
+        let mesconfirmacion = document.querySelector("#mesconfirmacion")
         console.dir(tipo.checked)
         let boton = document.querySelector("button")
         
         boton.addEventListener("click", () => {
-            linkinvitacion = crearlink(nombre.value, texto.value)
+            linkinvitacion = crearlink(nombre.value, texto.value,diaconfirmacion.value,mesconfirmacion.value)
    
             window.open(`https://api.whatsapp.com/send/?phone=54${numero.value}&text=${linkinvitacion}&type=phone_number&app_absent=0"`, '_blank');
         })
 
-        function crearlink(nombre, texto) {
+        function crearlink(nombre, texto,dia,mes) {
 
             
 
@@ -196,7 +208,7 @@
             pagatarjeta = tarjeta.checked?"s":"n";
             nombreprocesado = nombre.replace(/ /g, "_");
             textoprocesado = texto.replace(/ /g, "%20");
-            return `https://cesaryabi.github.io/casamiento/?n=${nombreprocesado}.${tipoInvitacion}.${haymenores}.${pagatarjeta}%20${textoprocesado}`
+            return `https://cesaryabi.github.io/casamiento/?n=${nombreprocesado}.${tipoInvitacion}.${haymenores}.${pagatarjeta}.${dia}.${mes}%20${textoprocesado}`
         }
     </script>
 </body>

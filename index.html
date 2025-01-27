@@ -46,7 +46,7 @@
         padding: 8rem 0;
       }
 
-      .hero-background {
+      /* .hero-background {
         position: fixed;
         top: 0;
         left: 0;
@@ -59,8 +59,22 @@
         z-index: -1;
         opacity: 1;
         background-color: var(--color-beige);
-      }
+      } */
 
+      .hero-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url('assets/img/logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  opacity: 1;
+  background-color: white;
+} 
       .wedding-title {
         color: var(--color-dorado);
         font-size: 4rem;
@@ -300,26 +314,31 @@
       
       <h1 class="wedding-title">Abigail & César</h1>
       <div class="info-card">
-      <h2 class="section-title text-center">Nuestra boda</h2>
+      <h2 class="section-title text-center" style="font-size: 300%;">Nuestra boda</h2>
       <h2>5 de Abril de 2025</h2>
       <div class="countdown-section" id="countdown">
       </div>
         <!-- Cuenta regresiva aquí -->
       </div>
+
+
+    
+
     </div>
   </div>
-  <div class="containe my-5">
-    <div class="gallery-section info-card ">
-      <i class="fas fa-book-open fa-3x" style="color: #808080; display: block; text-align: center;"></i>
-      <br>
-      <h2 class="section-title text-center"> Nuestra Historia </h2>
-      <div class="gallery-container" style="min-height: 600px; width: 100%; ">
-        <div class="gallery-wrapper" id="imageGallery" style="height: 100%; ">
-          <!-- Las imágenes se cargarán dinámicamente aquí -->
-        </div>
-      </div>
+  <div class="info-card" style="background-image: url('assets/img/card1.jpeg'); background-size:  auto 100%; background-repeat: no-repeat;; background-position: center;">
+       
+    <div style="margin-top: 500px; color: rgb(0, 0, 0); text-shadow: 0 0 10px #fff, 0 0 20px #fff; font-weight: bold;"">
+    <h2 class="section-title text-center" >Las muchas aguas no pueden apagar el amor,
+      ni los ríos pueden ahogarlo.
+      Si un hombre tratara de comprar amor
+      con toda su fortuna,su oferta sería totalmente rechazada.<br>
+     Cantar de los cantares 8:7 (Biblia ntv)</h2>  
+    
+      <!-- Cuenta regresiva aquí -->
     </div>
   </div>
+
   <div class="container-fluid  my-5">
     <div class="row">
       <div class="col-md-4 text-center">
@@ -330,7 +349,7 @@
           <p>El día 4 de abril a las 11:50hs.</p>
           <p>Registro civil de Bahía Blanca seccional primera.</p>
           <p>Direccion: Castelli 366</p>
-          <a href="https://maps.app.goo.gl/owU1pBFEvMRc3fkEA" class="btn confirm-button" target="_blank">
+          <a href="https://maps.app.goo.gl/Mw99yDA37EVRz4We7" class="btn confirm-button" target="_blank">
             Ver ubicación
           </a>
         </div>
@@ -354,14 +373,27 @@
           <i class="fas fa-glass-cheers fa-3x" style="color: #808080; display: block; text-align: center;"></i>
           <br>
           <h2 class="section-title text-center">Fiesta</h2>
-          <p>El día 5 de abril a las 21:02hs.</p>
+          <p>El día 5 de abril a las 21:30hs.</p>
           <p>Salón Juventus (Empleados de Comercio, Aldea romana)</p>
           <a href="https://maps.app.goo.gl/owU1pBFEvMRc3fkEA" class="btn confirm-button" target="_blank">
             Ver ubicación
           </a>
         </div>
       </div>
-
+      <div class="col-md-4 text-center">
+      <div class="info-card" style="background-image: url('assets/img/card2.jpeg'); background-size:  auto 100%; background-repeat: no-repeat;; background-position: center;">
+       
+        <div style="margin-top: 500px;">
+        <!-- <h2 class="section-title text-center" >Las muchas aguas no pueden apagar el amor,
+          ni los ríos pueden ahogarlo.
+          Si un hombre tratara de comprar amor
+          con toda su fortuna,su oferta sería totalmente rechazada.<br>
+         Cantar de los cantares 8:7 (Biblia ntv)</h2>   -->
+        
+          <!-- Cuenta regresiva aquí -->
+        </div>
+      </div>
+    </div>
       <div class="col-md-4 text-center" id="tarjeta">
         <div class="info-card">
           <i class="fas fa-gift fa-3x" style="color: #808080; display: block; text-align: center;"></i>
@@ -371,10 +403,8 @@
           <p>Será un privilegio contar con tu presencia en este momento tan importante para nosotros.</p>
           <p>Como una manera de simplificar la tradicional lista de regalos, hemos decidido que el costo de asistencia será de $40,000 por invitado <span id="menores"></span>, lo cual también será el obsequio para nuestra nueva etapa.
           </p>
-          <p>Este monto puede abonarse en cuotas hasta el 20 de marzo de 2024.</p>
-          <p>La confirmación se realizará una vez recibido el pago completo junto con el envío de los datos (DNI) de los asistentes.</p>
-          <p>Si por algún motivo no te resulta posible cubrir el monto total, no dudes en contactarnos para conversar. </p>
-          <p>Lo más importante para nosotros es que puedas acompañarnos en este día tan especial.</p>
+          <p>Este monto puede abonarse en cuotas hasta el 20 de marzo de 2025.</p>
+        
           
           <p>alias: <b id="alias" style="cursor: pointer;" >abiycesar.2025</b> </p>
           <div id="mensaje-copiado" class="alert alert-success d-none" role="alert">texto copiado</div>
@@ -423,44 +453,69 @@
       </div>
 
     </div>
-
+    <div class="info-card" style="background-image: url('assets/img/card3.jpg'); background-size:  auto 100%; background-repeat: no-repeat;; background-position: center;">
+       
+      <div style="margin-top: 500px; color: rgb(0, 0, 0); text-shadow: 0 0 10px #fff, 0 0 20px #fff; font-weight: bold;"">
+      <!-- <h2 class="section-title text-center" >Las muchas aguas no pueden apagar el amor,
+        ni los ríos pueden ahogarlo.
+        Si un hombre tratara de comprar amor
+        con toda su fortuna,su oferta sería totalmente rechazada.<br>
+       Cantar de los cantares 8:7 (Biblia ntv)</h2>   -->
+      
+        <!-- Cuenta regresiva aquí -->
+      </div>
+    </div>
+    <div class="buson-deseos info-card">
     <div class="text-center my-5">
       <h4 id="nomInvitado"></h4>
       <h3 id="tipoinvitacion">¿Nos acompañas?</h3>
       
     
-      <button class="confirm-button" id="confirmarAsistencia">
+      <button class="confirm-button" id="confirmarAsistenciaNovio">
         <a  target="_blank" class="link-secondary text-decoration-none" href="https://api.whatsapp.com/send/?phone=542914681055&text=Hola si confirmo&type=phone_number&app_absent=0">
-        Confirmar Asistencia
+        Confirmar Asistencia con el novio
         </a>
       </button>
-      <p>fecha de confirmacion hasta 7/02/2025</p>
+      <br> <br>
+      <button class="confirm-button" id="confirmarAsistenciaNovio">
+        <a  target="_blank" class="link-secondary text-decoration-none" href="https://api.whatsapp.com/send/?phone=542914224820&text=Hola si confirmo&type=phone_number&app_absent=0">
+        Confirmar Asistencia con la novia
+        </a>
+      </button>
+      <br> <br>
+      <p>La confirmación se realizará junto con el envío de los datos (DNI) de los asistentes hasta el <span id="fechalimite"></span></p>
     </div>
-
+</div>
     <div class="buson-deseos info-card">
       <i class="fas fa-book-open fa-3x" style="color: #808080; display: block; text-align: center;"></i>
       <br>
-      <h2 class="section-title text-center">Buson de deseos</h2>
-      <p class="text-center">Nos encantaría leer tus buenos deseo.</p>
+      <h2 class="section-title text-center">Drive de Fotos</h2>
+      <p class="text-center">Nos encantaría que nos ayudes de recordar cada momento.</p>
       
       <div class="row">
-        <div class="col-md-6">
+        <div class="text-center col-md-6 d-flex justify-content-center align-items-center">
           <div class="song-suggestions">
-            <h4>Lista de deseos</h4>
-            <div id="deseosList" class="song-list">
-              <!-- Las canciones se mostrarán aquí -->
+            <h4>Mandanos tu mail para poder subir fotos </h4>
+            <div id="" class="song-list">
+              <button class="confirm-button">
+                <a  target="_blank" class="link-secondary text-decoration-none" href="https://api.whatsapp.com/send/?phone=542914681055&text=Hola quiero subir fotos&type=phone_number&app_absent=0">
+                Quiero subir fotos
+                </a>
+              </button>
             </div>
           </div>
         </div>
         
-        <div class="col-md-6">
+        <div class=" text-center col-md-6">
          
             <div class="form-group">
-            <img src="https://cesaryabi.github.io/casamiento/assets/img/qr.png" alt="">
+            <img  src="https://cesaryabi.github.io/casamiento/assets/img/qr.png" alt="" style="width: 50%; height: auto;">
             </div>
-            <a href="https://otra-pagina.com" target="_blank">
-            <button type="submit" class="confirm-button">
-             Agregar <i class="fas fa-book-open"></i>
+            <p>Una vez que ya mandaste tu mail esperanos, y te creamos tu carpeta. Una vez creada tu carpeta apreta el siguiente boton busca tu nombre y podras subir editar, tambien podes chusmear lo que otros subieron jaja</p>
+          
+            <a href="https://drive.google.com/drive/folders/12yK25M6ja8G6noBboGMV4m1iGasaBEQ-?usp=drive_link" target="_blank">
+                <button type="submit" class="confirm-button">
+             ver y subir fotos <i class="fas fa-book-open"></i>
             </button>
             </a>
        
@@ -503,6 +558,20 @@
     </div>
 
 
+  </div>
+
+
+  <div class="containe my-5">
+    <div class="gallery-section info-card ">
+      <i class="fas fa-book-open fa-3x" style="color: #808080; display: block; text-align: center;"></i>
+      <br>
+      <h2 class="section-title text-center"> Galeria </h2>
+      <div class="gallery-container" style="min-height: 600px; width: 100%; ">
+        <div class="gallery-wrapper" id="imageGallery" style="height: 100%; ">
+          <!-- Las imágenes se cargarán dinámicamente aquí -->
+        </div>
+      </div>
+    </div>
   </div>
 </main>
 </div>

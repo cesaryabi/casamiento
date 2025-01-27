@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
       tipoinvitacion= dato[1]
       mostrarmenores= dato[2]
       mostrartarjeta= dato[3]
+      mostrardiaconfirmacion=dato[4]
+      mostrarmesconfirmacion=dato[5]
       if(nombre){
      
         nombreespacios=nombre.replace(/_/g," ")
@@ -34,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
         mostrarregalosText.classList.add("d-none")
         mostrartarjetaText.classList.remove("d-none");
         
+      }if(mostrardiaconfirmacion && mostrarmesconfirmacion){
+        let fechalimite=document.getElementById('fechalimite');
+        fechalimite.innerText =  `${mostrardiaconfirmacion}/${mostrarmesconfirmacion}/2025`
       }else{
         let mostrartarjetaText=document.getElementById('tarjeta');
         let mostrarregalosText=document.getElementById('regalos');
