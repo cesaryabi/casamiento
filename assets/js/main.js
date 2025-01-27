@@ -18,6 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
      
         nombreespacios=nombre.replace(/_/g," ")
         nomInvitado.innerText =nombre? `${nombreespacios}`:"";
+
+
+        if(nombreespacios!="AyC"){
+          document.getElementById('FormularioAgregarCanciones').classList.add("d-none")
+        }else{
+          document.getElementById('FormularioAgregarCanciones').classList.remove("d-none");
+        }
       }
       if(tipoinvitacion=="s"){
         tipoinvitacionText.innerText="¿Nos acompañas?"
@@ -31,20 +38,24 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("menores")
       }
       if(mostrartarjeta=="s"){
+        console.log("")
         let mostrartarjetaText=document.getElementById('tarjeta');
         let mostrarregalosText=document.getElementById('regalos');
         mostrarregalosText.classList.add("d-none")
         mostrartarjetaText.classList.remove("d-none");
         
-      }if(mostrardiaconfirmacion && mostrarmesconfirmacion){
-        let fechalimite=document.getElementById('fechalimite');
-        fechalimite.innerText =  `${mostrardiaconfirmacion}/${mostrarmesconfirmacion}/2025`
-      }else{
+      }   else{
         let mostrartarjetaText=document.getElementById('tarjeta');
         let mostrarregalosText=document.getElementById('regalos');
         mostrartarjetaText.classList.add("d-none")
         mostrarregalosText.classList.remove("d-none");
       }
+      
+      
+      if(mostrardiaconfirmacion && mostrarmesconfirmacion){
+        let fechalimite=document.getElementById('fechalimite');
+        fechalimite.innerText =  `${mostrardiaconfirmacion}/${mostrarmesconfirmacion}/2025`}
+ 
 
 
     }catch{

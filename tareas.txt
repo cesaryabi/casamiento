@@ -19,14 +19,22 @@
 --acomodar ubicacion civil
 --poner fiesta 20.30
 
-centrar fotos y acomodar al contenedor
-nombre de la persona que sube la cancion
-borrar temas repetidos
+--centrar fotos y acomodar al contenedor
+
+--borrar temas repetidos
+--nombre de la persona que sube la cancion
 
 
-texto regalos
-confirmar con dni y mail
+
+--texto regalos
+--borrar lista de temas
+--que solamente puedan subir AyC
+--Imagenes entre medio de algunos cardinfi
 
 
+
+mandar a amor el link donde pueda subir canciones
+
+subir todo
 
 

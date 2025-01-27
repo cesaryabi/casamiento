@@ -71,7 +71,8 @@ class PlaylistManager {
           <div class="song-details" style="background-color: rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center;">
             <div>
               <h5>${song.Nombre}</h5>
-              <p>${song.Artista}</p>
+              <p>artista: ${song.Artista},
+              agregado por:${song.Creador}</p>
             </div>
             <div class="vote-buttons">
               <button class="btn btn-sm btn-outline-primary" onclick="playlistManager.voteSong('${song.id}')">
@@ -147,6 +148,7 @@ class DeseosManager {
     const sortedSongs = this.songs.sort((a, b) => b.voto - a.voto);
     
     sortedSongs.forEach(song => {
+      console.log(song.Creador)
       const songElement = document.createElement('div');
       songElement.className = 'song-item';
       songElement.innerHTML = `
@@ -155,6 +157,7 @@ class DeseosManager {
             <div>
               <h5>${song.Nombre}</h5>
               <p>${song.Artista}</p>
+              <p>${song.Creador}</p>
             </div>
             <div class="vote-buttons">
               <button class="btn btn-sm btn-outline-primary" onclick="playlistManager.voteSong('${song.id}')">
@@ -196,7 +199,8 @@ function agregarCancion(Nombre, Artista) {
     Artista: Artista,
     Nombre: Nombre,
     voto:0,
-    fecha: firebase.firestore.FieldValue.serverTimestamp()
+    fecha: firebase.firestore.FieldValue.serverTimestamp(),
+    Creador: document.getElementById('nomInvitado').innerText
   }).catch((error)=>{
     console.error("Error al guardar cancion: ", error);
   });
