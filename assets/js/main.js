@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if(mostrarmenores=="s"){
         menorestext=document.getElementById('menores');
-        menorestext.innerText="(Menores de entre 4 y 12 años pagan la mitad)"
+        menorestext.innerText="(menores de 10 años no pagan, de 10 a 13 años abonarán solo la mitad)"
         console.log("menores")
       }
       if(mostrartarjeta=="s"){
