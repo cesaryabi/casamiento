@@ -24,7 +24,7 @@ async function loadGalleryImages() {
    
 
      '15.jpg',
-     '16.jpg',
+     
    
      '18.jpg',
      '19.jpg',
@@ -44,7 +44,7 @@ async function loadGalleryImages() {
     
      '34.jpg',
     
-     '36.jpg',
+   
       // Agrega aquí los nombres de tus imágenes
     ];
 
