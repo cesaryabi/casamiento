@@ -192,12 +192,12 @@
         let boton = document.querySelector("button")
         
         boton.addEventListener("click", () => {
-            linkinvitacion = crearlink(nombre.value, texto.value,diaconfirmacion.value,mesconfirmacion.value)
+            linkinvitacion = crearlink(nombre.value,diaconfirmacion.value,mesconfirmacion.value)
    
             window.open(`https://api.whatsapp.com/send/?phone=542914224820&text=${linkinvitacion}&type=phone_number&app_absent=0"`, '_blank');
         })
 
-        function crearlink(nombre, texto,dia,mes) {
+        function crearlink(nombre,dia,mes) {
 
             
 
