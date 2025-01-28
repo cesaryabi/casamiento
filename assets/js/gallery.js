@@ -51,7 +51,11 @@ async function loadGalleryImages() {
     images.forEach(imageName => {
       const img = document.createElement('img');
       img.src = `https://cesaryabi.github.io/casamiento/assets/img/galeria/${imageName}?a=0`;
-      img.style= "height: 100vw;  padding: 0;  margin: 0; width: 100vw;  display: block; "
+
+
+    
+    
+     
       img.alt = 'Foto de nuestra historia';
       img.className = 'gallery-image';
       
@@ -62,7 +66,18 @@ async function loadGalleryImages() {
 
       galleryContainer.appendChild(img);
     });
-
+    window.addEventListener('resize', () => {
+      console.log(`Ancho de pantalla actual: ${window.innerWidth}px`);
+      const galleryImages = document.querySelectorAll('.gallery-image');
+      galleryImages.forEach(img => {
+        if (window.innerWidth > 500) {
+          img.style = "padding: 0; margin: 0; width: 100vw; display: block;";
+        } else {
+          img.style = "height: 100vw; padding: 0; margin: 0; width: 100vw; display: block;";
+        }
+      });
+   
+    });
   } catch (error) {
     console.error('Error cargando la galería:', error);
     galleryContainer.innerHTML = '<p>Error al cargar las imágenes</p>';
