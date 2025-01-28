@@ -179,7 +179,7 @@ console.log(`La hora actual es: ${ahoraFormateada}`);
 
 // Cuenta regresiva
 function updateCountdown() {
-  const weddingDate = new Date('2025-04-05T19:30:00');
+  const weddingDate = new Date('2025-04-05T19:00:00');
   const now = new Date();
   const diff = weddingDate - now;
 
