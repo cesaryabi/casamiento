@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nomInvitado.innerText =nombre? `${nombreespacios}`:"";
 
 
-        if(nombreespacios!="AyC"){
+        if(nombreespacios=="AyC"){
           document.getElementById('FormularioAgregarCanciones').classList.add("d-none")
         }else{
           document.getElementById('FormularioAgregarCanciones').classList.remove("d-none");
