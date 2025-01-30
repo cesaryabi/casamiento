@@ -200,11 +200,11 @@ function updateCountdown() {
       </div>
       <div class="col-3">
         <h3>${minutes}</h3>
-        <p>Minutos</p>
+        <p>Min.</p>
       </div>
       <div class="col-3">
         <h3>${seconds}</h3>
-        <p>Segundos</p>
+        <p>Seg.</p>
       </div>
     </div>
   `;
